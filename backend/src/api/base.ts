@@ -7,7 +7,7 @@ import MongoStore from "connect-mongo";
 import passport from "passport";
 
 dotenv.config();
-const app = express();
+export const app = express();
 const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
