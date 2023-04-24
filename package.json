@@ -4,9 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "dev": "tsc && node dist",
-    "start": "node dist"
+    "build": "cd backend && tsc",
+    "dev": "cd backend && tsc && cd ../ && node backend/dist",
+    "start": "node backend/dist"
   },
   "repository": "https://github.com/ReportCardsMC/logr",
   "author": "ReportCards",
