@@ -5,6 +5,9 @@ import * as bodyParser from "body-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
+import { authRouter } from "./routers/authRouter";
+import "./strategies/google"
+import "./strategies/discord"
 
 dotenv.config();
 export const app = express();
@@ -40,9 +43,9 @@ app.get('/', (req, res) => {
     res.send('<a href="/auth/google">Login with Google</a>');
 });
 
+app.use(`/auth`, authRouter)
+
 app.use((req, res, next) => {
     console.log(`[EXPRESS] ${req.method}:${req.url} ‖ Finished in ${Date.now() - req.started!}ms\n`)
     next();
 })
-
-app.listen(PORT, () => console.log("Listening on port " + PORT));
